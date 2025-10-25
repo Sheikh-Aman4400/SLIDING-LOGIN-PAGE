@@ -1,34 +1,64 @@
 # Sliding Login Page
 
-A simple, responsive sliding login/signup UI built with plain HTML and CSS.
+A responsive front-end sliding login/signup UI built with HTML, CSS and a small JavaScript helper. Includes a multilingual greeting rotator.
 
-Overview
-- Clean two-panel sliding interface with signup and signin forms.
-- Mobile-friendly and uses a responsive viewport meta tag in [index.html](index.html).
+## Features
+- Smooth sliding transition between Sign In and Sign Up panels.
+- Multilanguage greeting rotation (configurable list).
+- Pure CSS layout + minimal JS to toggle panels and rotate greetings.
+- Mobile-friendly and easy to customize.
 
-Live preview
-- Open the demo in a browser: [index.html](index.html)
-- To get a live reload workflow in VS Code, install the "Live Server" extension and serve [index.html](index.html).
+## Files
+- `index.html` — main markup (contains forms, overlay and greeting element).
+- `stylesheet.css` — all styles and transition rules.
+- `script.js` — toggles the sliding panels and rotates greetings.
+- `README.md` — this file.
 
-Files
-- [index.html](index.html) — the main HTML file that contains the signup/signin forms and overlay panels.
-- [stylesheet.css](stylesheet.css) — all styling and layout rules for the sliding UI.
-- [README.md](README.md) — this file.
-
-How to use
+## Installation / Run (macOS)
 1. Clone or copy the project folder to your machine.
-2. Open [index.html](index.html) in your browser (double-click or right-click → Open With).
-3. Optionally run a local server (Live Server) for development.
+2. Open the folder in VS Code.
+3. Option A — open in browser:
+   - Double-click `index.html` or right-click → Open With → Safari/Chrome.
+4. Option B — run a local server (recommended):
+   - Install Live Server extension in VS Code and click "Go Live", or run:
+     - python3 -m http.server 5500
+     - open http://localhost:5500/ in your browser
 
-Customization
-- Edit layout, colors, and transitions in [stylesheet.css](stylesheet.css).
-- Modify form text, placeholders, or add new form fields in [index.html](index.html).
+## Usage
+- Click "Sign Up" / "Sign In" overlay buttons to toggle panels.
+- The greeting in the overlay cycles through configured greetings every few seconds (0.5s transition).
 
-Notes
-- This is a front-end UI prototype only. Forms use placeholder action attributes; integrate with your backend or client-side validation as needed.
+## Customize
+- Edit greetings: open `script.js` and modify the `greetings` array.
+- Transition timing: match `transitionMs` in `script.js` with CSS (currently 500ms).
+- Styling: change colors, sizes and layout in `stylesheet.css`.
 
-Author
-- Built by SHEIKH AMAN — see the footer in [index.html](index.html).
+Suggested greetings example:
+- English: Hello
+- German: Hallo
+- Russian: Здравствуйте / Привет
+- Turkish: Merhaba
+- Hindi (India): नमस्ते
+- Bhutan: Tashi Delek (བཀྲ་ཤིས་བདེ་ལེགས།)
+- Mandarin (China): 你好
+- Spanish: Hola
+- French: Bonjour
+- Japanese: こんにちは
 
-License
-- Free to use and adapt for personal or educational projects.
+## Troubleshooting
+- If sliding doesn't work:
+  - Open Developer Tools (Cmd+Option+I) → Console for errors.
+  - Ensure `script.js` is referenced at the end of `index.html` and path is correct.
+  - Confirm elements with IDs `container`, `signUp`, `signIn`, and the greeting ID exist.
+  - Ensure button types are `type="button"` to prevent form submission interfering.
+- If greeting transition looks off, verify CSS transition durations match `script.js` `transitionMs`.
+
+## Accessibility & Notes
+- Forms are placeholders — integrate with your backend and add validation before use.
+- Improve accessibility by adding labels, aria-attributes and focus styles.
+
+## Author
+Built by SHEIKH AMAN
+
+## License
+Free to use and adapt for personal or educational projects.
